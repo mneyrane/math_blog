@@ -1,0 +1,13 @@
+{
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.wordWrap": "on",
+    "files.associations": {
+      "*.html": "liquid",
+      "*.md": "liquid"
+    },
+    "[liquid]": {
+      "editor.defaultFormatter": "sissel.shopify-liquid"
+    }
+}
