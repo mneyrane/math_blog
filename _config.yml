@@ -1,0 +1,31 @@
+source: "./source"
+timezone: "Canada/Pacific"
+permalink: pretty
+
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "_posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "_drafts"
+    values:
+      layout: "post"
+
+plugins:
+  - jekyll-feed
+
+title: "Abstract Curiosities"
+description: "A fun, technical blog on mathematics and computing science."
+
+feed:
+  tags:
+    path: "feed/topics/"

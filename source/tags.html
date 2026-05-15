@@ -1,0 +1,32 @@
+---
+title: Tags
+description: Abstract Curiosities technical blog posts sorted by tags.
+---
+
+<h1>Posts by Tag</h1>
+
+<h2>Tag Index</h2>
+{% capture all_tags_as_string %}
+  {%- for data in site.tags -%}
+    {{ data.first }};
+  {%- endfor -%}
+{% endcapture %}
+{% assign sorted_tags = all_tags_as_string | split: ";" | sort_natural %}
+<ul>
+  {% for tag in sorted_tags -%}
+  <li><a href="#{{ tag | slugify }}">{{ tag | capitalize }}</a></li>
+  {%- endfor %}
+</ul>
+
+<h2>Tags</h2>
+{% for tag in sorted_tags %}
+  <h3 id="{{ tag | slugify }}">{{ tag |  capitalize }}</h3>
+  <ul>
+    {% for post in site.posts -%}
+      {%- for post_tag in post.tags -%}
+        {% if tag == post_tag %}<li><a href="{{ post.url }}">{{ post.title }}</a></li>{% endif %}
+      {%- endfor -%}
+    {%- endfor %}
+  </ul>
+  {% unless forloop.last %}<hr />{% endunless %}
+{% endfor %}

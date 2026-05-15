@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if page.author %}<meta name="author" content="{{ page.author }}" />{% endif %}
+    {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{% link assets/styles/fonts.css %}" />
+    <link rel="stylesheet" href="{% link assets/styles/style.css %}" />
+    <link rel="icon" type="image/svg+xml" href="{% link /favicon.svg %}" />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    {% feed_meta %}
+  </head>
+  <body>
+    <header class="site-marginals">
+      <div class="site-header-container">
+        <div class="site-banner">
+          <div>
+            <div class="site-title">Abstract Curiosities</div>
+            <div class="site-subtitle">A wild, technical blog on math and computing!</div>
+          </div>
+        </div>
+        {% include navigation.html %}
+      </div>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-marginals">
+      <div class="site-footer-container">
+        <!-- TO DO Not clear how to organize this or if a footer is necessary. I will keep it here for now. -->
+        <p class="site-footer-margins">
+          Powered by <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://pages.cloudflare.com/">Cloudflare Pages</a>.
+        </p>
+        <p class="site-footer-margins">
+          Unless stated otherwise, the post content of this site is under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

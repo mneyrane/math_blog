@@ -1,0 +1,17 @@
+---
+description: A technical blog on mathematics and computing science aimed at readers with an ongoing pursuit of, or completion of, undergraduate studies.
+---
+
+<h1>All Posts</h1>
+
+{% for post in site.posts -%}
+<article>
+  <header class="article-index-metadata">
+    <h2 class="article-index-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%b. %e, %Y" }}</time>
+    {%- assign author = site.data.authors[post.author] -%}
+    {%- if author %} - {{ author.name }}{% endif %}
+  </header>
+</article>
+    {% unless forloop.last %}<hr />{% endunless %}
+{%- endfor %}

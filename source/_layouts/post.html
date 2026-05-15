@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% assign author = site.data.authors[page.author] %}
+{% assign figure_num = 0 %}
+<article>
+  <header class="article-header">
+    <h1>{{ page.title }}</h1>
+    <p class="zero-margin">
+      Posted on <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %e, %Y" }}</time>
+      {%- if author %} by {{ author.name }}{% endif %}
+    </p>
+    <ul class="tags">
+    {% for tag in page.tags -%}
+      <li><a href="{% link tags.html %}#{{ tag | slugify }}">#{{ tag | slugify }}</a></li>
+    {%- endfor %}
+    </ul>
+  </header>
+  {{ content }}
+  <footer class="article-footer">
+    <p>Enjoyed this post? Share it with your friends, colleagues, or on social media!</p>
+    <address>
+      Any questions about the article? Reach out by email via <a href="mailto:contact@mneyrane.com">contact@mneyrane.com</a>.
+    </address>
+  </footer>
+</article>
