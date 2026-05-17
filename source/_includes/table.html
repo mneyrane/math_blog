@@ -1,0 +1,7 @@
+{% assign table_num = table_num | plus: 1 %}
+<figure id="tab:{{ include.id }}">
+  <figcaption>Table {{ table_num }}: {{ include.caption }}</figcaption>
+  <div class="x-scrollable" markdown="{{ include.markdown }}">
+    {{ include.table }}
+  </div>
+</figure>

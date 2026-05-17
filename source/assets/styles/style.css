@@ -20,6 +20,9 @@
   --marginals-link-color-link: #ffc0c0;
   --marginals-link-color-focus: #ffdede;
   --marginals-link-color-active: #ff8b8b;
+
+  --table-primary-color: #eed999;
+  --table-secondary-color: #fff0c1;
 }
 
 html {
@@ -58,11 +61,9 @@ main {
 
 main img {
   display: block;
-  margin: 1.125rem auto;
+  margin: 0 auto;
   border: 1px solid var(--main-border-color);
   border-radius: 4px;
-  max-width: 100%;
-  height: auto;
 }
 
 h1 {
@@ -94,12 +95,53 @@ address {
 }
 
 figure {
-  margin: 2rem 0;
-  text-align: center;
+  margin: 2rem auto;
 }
 
 figcaption {
+  margin: 1rem 0;
+  text-align: center;
   font-size: 1rem;
+}
+
+table {
+  font-size: 1rem;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  max-width: 100%;
+  min-width: max-content;
+  border: 1px solid var(--main-border-color);
+}
+
+thead {
+  border-top: 2px solid var(--main-border-color);
+  border-bottom: 2px solid var(--main-border-color);
+  background-color: var(--table-primary-color);
+  font-weight: bold;
+}
+
+tbody {
+  background-color: var(--table-secondary-color);
+  font-weight: normal;
+}
+
+tfoot {
+  border-top: 2px solid var(--main-border-color);
+  border-bottom: 2px solid var(--main-border-color);
+  background-color: var(--table-secondary-color);
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: var(--table-primary-color);
+}
+
+th,
+td {
+  font-family: "Libertinus Sans", sans-serif;
+  padding: 0.375rem;
+  border: 1px solid var(--main-border-color);
 }
 
 a:link {
@@ -136,9 +178,13 @@ hr {
   margin: 0;
 }
 
-img.img-fluid {
+.img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+.x-scrollable {
+  overflow-x: auto;
 }
 
 /* Site-wide styles */
@@ -264,6 +310,18 @@ ul.tags > li {
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   main {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  main {
+    width: 576px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
     width: 100%;
     border-left: none;
     border-right: none;
@@ -271,12 +329,6 @@ ul.tags > li {
 }
 
 @media screen and (max-width: 768px) {
-  main {
-    width: 100%;
-    border-left: none;
-    border-right: none;
-  }
-
   .site-banner {
     flex-direction: column;
     text-align: center;
@@ -285,9 +337,11 @@ ul.tags > li {
     border-bottom: 1px dotted var(--marginals-text-color);
   }
 
+  /*
   ul.site-nav-flex {
     flex-direction: column;
   }
+  */
 
   .site-header-container {
     flex-direction: column;

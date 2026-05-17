@@ -1,7 +1,7 @@
 {% assign figure_num = figure_num | plus: 1 %}
-<figure>
-  <a href="#{{ include.id }}">
+<figure id="fig:{{ include.id }}">
+  <div class="x-scrollable">
     <img src="{% link {{ include.file }} %}" width="{{ include.width }}" alt="{{ include.alt }}" />
-  </a>
+  </div>
   <figcaption>Figure {{ figure_num }}: {{ include.caption }}</figcaption>
 </figure>
